@@ -1,0 +1,96 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+ 
+html {
+	overflow-y: hidden;
+}
+
+body {
+	height: auto;
+}
+
+form {
+	display: block;
+	height: calc(100vh - 145px);
+	max-width: 900px;
+	margin: 50px auto;
+}
+
+form h3 {
+	width: 100%;
+	font-weight: normal;
+	font-size: 1.25em;
+	font-family: 'Mukta', sans-serif;
+}
+
+input, textarea {
+	width: calc(100% - 12px); /*Account of input padding of 5 on each side and 1 for border*/
+	padding: 10px 5px;
+	border: solid 1px black;
+	font-family: "Open Sans";
+	font-size: 1em;
+}
+
+form input {
+	margin: 15px 0;
+}
+
+form input:focus, form textarea:focus {
+	outline: none;
+}
+
+form textarea {
+	min-height: 150px;
+	height: calc(100% - 303px);
+	max-height: 500px;
+	margin: 30px 0;
+	resize: none;
+}
+
+form div {
+	display: block;
+	width: 100%;
+	height: 35px;
+}
+
+form a {
+	height: auto;
+	padding: 5px 10px;
+	cursor: pointer;
+	background:none;
+	font-size: 1em;
+	border: solid 1px black;
+	font-family: "Open Sans";
+	float: right;
+	margin-left: 20px;
+	user-select: none;
+}
+
+form a:hover {
+	color: black;
+	border-color: #666666;
+}
+
+footer {
+	height: 45px;
+	grid-area: none;
+	position: sticky;
+}
+
+@media only screen and (max-width: 992px) {
+	form {
+		margin: 50px 10px;
+	}
+}
+
+@media only screen and (max-height: 600px) {
+	html {
+		overflow-y: auto;
+	}
+
+	form {
+		height: auto;
+	}
+}

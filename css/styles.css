@@ -1,0 +1,569 @@
+/* Font Imports */
+
+@import url('https://fonts.googleapis.com/css?family=Mukta|Open+Sans');
+
+/* Random settings */
+
+html, body, .main, nav, ul, a, li, div, footer, header, span, h1, h3, p{
+	height: 100%;
+	margin: 0;
+	font-family: Open Sans;
+	min-width: 0;
+	min-height: 0;
+}
+
+h1, h3 {
+	height: auto;
+}
+
+div, span {
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+ul {
+	height: 100%;
+	list-style-type: none;
+	padding: 0;
+}
+
+a:hover{
+	color: #405EC9;
+}
+
+/* Grid Template */
+
+#main {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: [col1-s] 10% [col1-e col2-s] auto [col2-e col3-s] 10% [col3-e];
+	    grid-template-columns: [col1-s] 10% [col1-e col2-s] auto [col2-e col3-s] 10% [col3-e];
+	-ms-grid-rows: [row1-s] 50px [row1-e row2-s] minmax(300px, 1fr) [row2-e row3-s] minmax(1200px, 4fr) [row3-e row4-s] minmax(1000px, 1fr) [row4-e row5-s] 40px [row5-e];
+	    grid-template-rows: [row1-s] 50px [row1-e row2-s] minmax(300px, 1fr) [row2-e row3-s] minmax(1200px, 4fr) [row3-e row4-s] minmax(1000px, 1fr) [row4-e row5-s] 40px [row5-e]; 
+	-webkit-box-align: center; 
+	    -ms-flex-align: center; 
+	        align-items: center;
+	justify-items: center;
+	transition: gird-template-columns 200ms;
+	overflow-x: hidden;
+}
+
+#main.col-expand {
+	overflow-x: auto;
+	-ms-grid-columns: [col1-s] minmax(300px, 20%) [col1-e col2-s] auto [col2-e col3-s] 10% [col3-e];
+	    grid-template-columns: [col1-s] minmax(300px, 20%) [col1-e col2-s] auto [col2-e col3-s] 10% [col3-e];
+}
+
+/* Header */
+
+header {
+	grid-area: row1-s / col1-s / row1-e / col3-e;
+	-ms-grid-column-align: stretch;
+	    justify-self: stretch;
+}
+
+header .navbar > li {
+	height: 100%;
+	float:left;
+	margin:0 1em;
+}
+
+header .navbar > li:last-child {
+	float:right;
+}
+
+header .navbar h1 {
+	font-size: 2em;
+}
+
+.dropdown {
+	width: 50px;
+	position: relative;
+}
+
+.dropdown img {
+	position: absolute;
+	max-height: 100%;
+	width: auto;
+	-webkit-transition: -webkit-transform 500ms;
+	transition: -webkit-transform 500ms;
+	-o-transition: transform 500ms;
+	transition: transform 500ms;
+	transition: transform 500ms, -webkit-transform 500ms;
+}
+
+.dropdown-content {
+	border: solid 3px black;
+	overflow: hidden;
+	display: block;
+	position: absolute;
+	border-radius: 4px;
+	background: #F6F6F6;
+	width: 100px;
+	max-height:96px;
+	z-index: 1;
+	top: 100%;
+	right: 0;
+	-webkit-transition: height 500ms;
+	-o-transition: height 500ms;
+	transition: height 500ms;
+}
+
+.dropdown-content.off {
+	border: none;
+	height: 0px;
+}
+
+.dropdown-content.on {
+	height: 96px;
+	
+}
+
+.dropdown-content li {
+	padding: 5px 10px;
+	height: auto;
+}
+
+.dropdown-content li:hover {
+	background:#E2DFE4;
+}
+
+.dropdown-content li a:hover {
+	color: black;
+}
+
+.dropdown img.spin-on {
+	-webkit-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
+.dropdown img.spin-off {
+	-webkit-transform:rotate(0deg);
+	    -ms-transform:rotate(0deg);
+	        transform:rotate(0deg);
+}
+/* Sidebar (left) */
+
+#sidebar {
+	position: relative;
+	grid-area: row3-s / col1-s / row3-e / col1-e;
+}
+
+.VT-container {
+	line-height: 15px;
+	margin-left: 50%;
+	height: auto;
+}
+
+.vertical-text {
+    -ms-user-select: none;
+    user-select: none;
+	font-size: 1em;
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	-webkit-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	        transform: rotate(90deg);
+	font-family: 'Mukta', sans-serif;
+}
+
+.block {
+	display: block;
+	margin-top:50%;
+	margin-bottom: 50%;
+	height: 55%;
+	border-right: solid 1px black;
+}
+
+.about-container {
+	overflow: hidden;
+	background: #F6F6F6;
+	position: absolute;
+	display: block;
+	left: 10px;
+	top: 0;
+	width: 0;
+	height: auto;
+	transition: width 300ms;
+}
+
+.about-container.on {
+	padding:10px;
+	width: 85%;
+}
+
+.about-container img {
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+}
+.about-container p {
+	font-size: 1em;
+	padding: 10px;
+	height: auto;
+}
+
+/* Main content */
+
+#quote {
+	grid-area: row2-s / col2-s / row2-e / col2-e;
+}
+
+#quote div {
+	position: relative;
+	height: calc(100% - (2 * 1.375em));
+}
+
+#quote h1 {
+	font-size: 4em;
+	position: absolute;
+	bottom: 10px;
+	left: 10%;
+}
+
+#quote span {
+	width: auto;
+	margin-left: 50%;
+	font-size: 1em;
+	font-family: 'Mukta', sans-serif;
+	display: block;
+	height: 1.375em;
+}
+
+#design {
+	grid-area: row3-s / col2-s / row3-e / col2-e;
+}
+
+.design-container {
+	max-width: 80%;
+	width: auto;
+	height: auto;
+	margin: 700px auto 0;
+}
+
+.design-container h1 {
+	display: block;
+	width: 500px;
+	margin:0 auto;
+	font-size: 5em;
+}
+
+.design-container input {
+	display: block;
+	margin: 0 auto;
+	font-size: 2.75em;
+	border: none;
+	border-bottom: solid 1px black;
+}
+
+.design-container h3 {
+	width: 200px;
+	display: block;
+	margin: 2em auto 0;
+	padding-left: 270px;
+	font-size: 1em;
+}
+
+#work {
+	grid-area: row4-s / col1-s / row4-e / col3-e;
+}
+
+.work-container {
+	margin: 25px;
+	height: 95%;
+}
+
+.work-container h1 {
+	font-size: 4em;
+	height: auto;
+}
+
+.work-container ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	height: auto;
+}
+
+.work-container li {
+	-webkit-box-flex: 0;
+	    -ms-flex: 0 0 250px;
+	        flex: 0 0 250px;
+	margin: 10px;
+	position: relative;
+	height: 250px
+}
+
+.work-container .img {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	position: relative;
+	cursor: pointer;
+}
+
+/* This looks like a mess but it was the best way to achieve this
+   You said you'd show this off on a tablet, and the website was
+   having some serious performance issues with safari using the
+   css filter property (the cleaner approach). This is much better
+   in terms of performance. That said, 12 pictures is a lot, and I
+   would suggest doing something like 8 or 6 unless you absolutely
+   need to */
+
+#img1 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img1:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img2 {
+	background-image: url("../assets/blue/cat.jpg")
+}
+
+#img2:hover {
+	background-image: url("../assets/cat.jpg");
+}
+
+#img3 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img3:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img4 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img4:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img5 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img5:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img6 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img6:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img7 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img7:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img8 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img8:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img9 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img9:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img10 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img10:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img11 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img11:hover {
+	background-image: url("../assets/gray.png");
+}
+
+#img12 {
+	background-image: url("../assets/blue/gray.png")
+}
+
+#img12:hover {
+	background-image: url("../assets/gray.png");
+}
+
+.work-container h3 {
+	display:none;
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+	/* For title to centered, margin left and margin top
+	   must be 50% of the text's width and height respectively */
+	margin-left: -20.72px;
+	margin-top: -12.5px;
+	user-select: none;
+}
+
+.work-container li:hover > h3 {
+	display: block;
+}
+
+/* Right Margin */
+
+.margin {
+	grid-area: row2-s / col3-s / row3-e / col3-e;
+}
+
+/* Footer */
+
+footer {
+	grid-area: row5-s / col1-s / row5-e / col3-e;
+	-ms-grid-column-align: stretch;
+	    justify-self: stretch;
+	border-top: solid 5px black;
+}
+
+footer .navbar h3 {
+	text-align:center;
+}
+
+footer .navbar li {
+	margin: 9px 3em;
+	height: auto;
+	float:right;
+}
+
+footer .navbar li:first-child {
+	margin: 7.5px 3em;
+	float:left;
+}
+
+footer .navbar a {
+	font-family: 'Mukta', sans-serif;
+}
+
+/* Adjustments for different viewports */
+
+@media only screen and (max-width: 1200px) {
+	.VT-container {
+		font-size: 12px;
+		line-height: 10px;
+	}
+
+	.work-container li {
+		-ms-flex-preferred-size: 200px;
+		    flex-basis: 200px;
+		height: 200px;
+	}
+} 
+
+@media only screen and (max-width: 992px) {
+	
+	.design-container input {
+		font-size: 2em;
+	}
+
+	.design-container h3 {
+		padding-left: 220px;
+	}
+
+	#quote {
+		font-size: 13px;
+	}
+
+	footer .navbar {
+		font-size: 14px;
+	}
+
+	.VT-container {
+		font-size: 10px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.about-container {
+		font-size: 13px;
+	}
+
+	#quote h1 {
+		font-size: 2.5em;
+	}
+
+	.work-container li {
+		-ms-flex-preferred-size: 150px;
+		    flex-basis: 150px;
+		height: 150px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	#main {
+		overflow-x: auto;
+	}
+
+	.design-container {
+		font-size: 10px;
+	}
+
+	.design-container h1 {
+		width: 350px;
+	}
+
+	.design-container h3 {
+		padding-left: 130px;
+	}
+
+	footer .navbar li {
+		margin: 9px 0.75em;
+	}
+
+	footer .navbar li:first-child {
+		margin: 7.5px 0.75em;
+	}
+
+	.work-container li {
+		-ms-flex-preferred-size: 100px;
+		    flex-basis: 100px;
+		height: 100px;
+	}
+
+	.work-container {
+		font-size: 12px
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	.design-container {
+		font-size: 8px;
+	}
+	#quote h1 {
+		font-size: 1.5em;
+	}
+}
